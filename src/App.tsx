@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useMediaQuery, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import "./global/styles/App.scss";
+import StepIndicator from './nav/components/StepIndicator';
 
 function App() {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const themeName = prefersDarkMode ? "dark" : "light";
+
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: themeName
+        },
+      }),
+    [prefersDarkMode, themeName],
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <div className={"content-" + themeName}>
+
+        </div>
+        <div className="stepper">
+          <StepIndicator />
+        </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
