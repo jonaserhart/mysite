@@ -1,7 +1,14 @@
 import React from 'react';
 import { useMediaQuery, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import "./global/styles/App.scss";
-import StepIndicator from './nav/components/StepIndicator';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import SwipeableCarousel from './content/components/SwipeableCarousel';
+import { TransitionGroup } from 'react-transition-group';
+
+const client = new ApolloClient({
+  uri: "https://api-eu-central-1.graphcms.com/v2/ckb6ex495017401xrcd0dfbrw/master",
+});
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -12,21 +19,25 @@ function App() {
     () =>
       createMuiTheme({
         palette: {
+          primary: {
+            main: "#FFFFFF"
+          },
           type: themeName
         },
       }),
-    [prefersDarkMode, themeName],
+    [themeName],
   );
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <div className={"content-" + themeName}>
-
-        </div>
-        <div className="stepper">
-          <StepIndicator />
-        </div>
-      </div>
+      <ApolloProvider client={client}>
+        <TransitionGroup component="div" className="group" >
+          <div className="App">
+            <div className={"content-" + themeName}>
+              <SwipeableCarousel />
+            </div>
+          </div>
+        </TransitionGroup>
+      </ApolloProvider>
     </ThemeProvider>
   );
 }
