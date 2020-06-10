@@ -1,5 +1,5 @@
 ## My personal website
 
-made using Typescript with the React-library
+made using Typescript in combination with the React-library
 
 
