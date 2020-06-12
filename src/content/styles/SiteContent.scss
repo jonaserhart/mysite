@@ -77,6 +77,9 @@
     height: inherit;
     width: 100%;
     transition: width 500ms ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     z-index: -5;
   }
   .overlay{

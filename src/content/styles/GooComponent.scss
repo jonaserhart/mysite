@@ -1,0 +1,14 @@
+svg * {transform-origin: 50%}
+
+@keyframes left {
+  100% {transform: rotate(-360deg)}
+}
+
+@keyframes right {
+  100% {transform: rotate(360deg)}
+}
+
+@keyframes little {
+  100% {transform: rotate(-360deg)}
+  100% {transform: scale(12,36)}
+}

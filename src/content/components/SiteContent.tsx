@@ -8,7 +8,7 @@ interface Props {
   content: IContent;
 }
 
-export default function SiteContent(props: Props) {
+export default function SiteContent(props: Props): React.ReactElement<Props> {
 
   let content = props.content;
 
@@ -33,9 +33,6 @@ export default function SiteContent(props: Props) {
             </a>
           </div>
         </div>
-        {/* <a className="imageLink" href={content.link.href}>
-          <img src={content.link.thumbnailRef} alt=" " />
-        </a> */}
         <img src={content.pictureRef} alt="" style={{ display: "none" }} onLoad={handleImageLoaded} />
         <div className="backgroundImage" style={{ backgroundImage: 'url(' + content.pictureRef + ')' }} />
         <div className="overlay" style={{ backgroundColor: content.backdrop, opacity: "25%" }} />
