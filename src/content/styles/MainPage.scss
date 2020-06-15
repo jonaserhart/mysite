@@ -42,4 +42,17 @@
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px gray;
   }
+
+  .backgroundImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    width: 100%;
+    transition: width 500ms ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -5;
+  }
 }

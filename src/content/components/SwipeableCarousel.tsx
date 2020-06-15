@@ -4,10 +4,14 @@ import Loading from '../../gql/components/Loading';
 import Error from '../../gql/components/Error';
 import parseContent from '../../gql/functions/parseContent';
 import SiteContent from './SiteContent';
-import {useQuery} from '@apollo/react-hooks';
-import {gql} from 'apollo-boost';
-import {makeStyles, MobileStepper} from '@material-ui/core';
-import {MainPage} from "./MainPage";
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+import { makeStyles, MobileStepper, Button } from '@material-ui/core';
+import { MainPage } from "./MainPage";
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import "../styles/Carousel.scss";
+import { IContent } from '../types/content';
 
 // const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -26,19 +30,13 @@ export default function SwipeableCarousel() {
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [lastScroll, setLastScroll] = React.useState(0);
-  const [imageLoading, setImageLoading] = React.useState(false);
 
   const handleStepChange = React.useCallback((step: number, numOfSteps: number) => {
-
     if (step >= numOfSteps) return;
     if (step < 0) return;
 
     setActiveStep(step);
   }, [setActiveStep])
-
-  const handleImageLoaded = React.useCallback( () => {
-    setImageLoading(!imageLoading);
-  },[])
 
   const handleScroll = React.useCallback((event, stepNo) => {
     let now = new Date().getTime()
@@ -78,45 +76,53 @@ export default function SwipeableCarousel() {
   if (error) return <Error />
 
   const contentList = parseContent(data);
+  const maxSteps = (contentList.length + 1);
 
   return (
     <div className="carousel" onWheel={e => handleScroll(e, contentList.length + 1)}>
       <div className="nextButton">
-
+        <Button disabled={activeStep >= (maxSteps - 1)} variant="outlined" color="primary" onClick={() => handleStepChange(activeStep + 1, maxSteps)}>
+          <NavigateNextIcon />
+        </Button>
+      </div>
+      <div className="beforeButton">
+        <Button disabled={activeStep === 0} variant="outlined" color="primary" onClick={() => handleStepChange(activeStep - 1, maxSteps)}>
+          <NavigateBeforeIcon />
+        </Button>
       </div>
       <SwipeableViews
-          className="sw"
-          axis={"x"}
-          index={activeStep}
-          onChangeIndex={(step) => handleStepChange(step, contentList.length + 1)}
-          enableMouseEvents
+        className="sw"
+        axis={"x"}
+        index={activeStep}
+        onChangeIndex={(step) => handleStepChange(step, maxSteps)}
+        enableMouseEvents
       >
         <div key={0}>
-          <MainPage imageLoading={imageLoading} onLoad={handleImageLoaded}/>
+          <MainPage />
         </div>
 
         {
           contentList.map((content) => (
-              <div key={content.index}>
-                <SiteContent content={content}/>
-              </div>
+            <div key={content.index}>
+              <SiteContent content={content} />
+            </div>
           ))
         }
       </SwipeableViews>
       <div className="stepper">
         <MobileStepper
-            variant="progress"
-            steps={contentList.length + 1}
-            position="static"
-            activeStep={activeStep}
-            className={classes.root}
-            nextButton={null
-            }
-            backButton={null
-            }
+          variant="progress"
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          className={classes.root}
+          nextButton={null
+          }
+          backButton={null
+          }
         />
       </div>
-    </div>
+    </div >
   )
 
 }
