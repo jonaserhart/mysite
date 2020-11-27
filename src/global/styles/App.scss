@@ -1,40 +1,17 @@
 .App{
   height: 100%;
+  width: inherit;
 
   .content-dark{
     height: 100%;
-    background-color: rgb(38, 40, 48);
+    width: inherit;
+    // background-color: rgb(38, 40, 48);
+    
   }
 
   .content-light{
     height: 100%;
-    background-color: rgb(38, 40, 48);
-  }
-
-  .carousel{
-    height: 100%;
-    >.sw{
-      height: 100%;
-      >div{
-        height: 100%;
-        >div{
-          height: 100%;
-          >div{
-           height: 100%;
-        }
-        }
-      }
-    }
-  }
-  
-  .stepper{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding-bottom: 1rem;
-    .MuiMobileStepper-progress{
-      width: 100%;
-      margin: auto;
-    }
+    width: inherit;
+    // background-color: rgb(38, 40, 48);
   }
 }

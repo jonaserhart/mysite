@@ -1,0 +1,13 @@
+.home {
+    text-align: center;
+    .image-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        >.profile-image{
+            border-radius: 100%;;
+            width: 110px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.288);
+        }
+    }
+}

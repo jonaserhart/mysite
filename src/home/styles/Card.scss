@@ -1,0 +1,33 @@
+.card-link{
+    height: 110px;  
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    .bgImage-card{
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        scale: 0.8;
+        transition: scale 0.5s ease-in-out;
+    }
+    .card-title{
+        position: absolute;
+        top: 15px;
+        width: 100%;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.329);
+        scale: 1;
+        transition: scale 0.5s ease-in-out;
+    }
+}
+
+.card-link:hover .card-title{
+    scale: 1.3;
+}
+
+.card-link:hover .bgImage-card{
+    scale: 0.6;
+}
