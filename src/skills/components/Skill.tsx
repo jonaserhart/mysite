@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 
-const calc = (x: number, y:number) => [-(y - window.innerHeight / 2) / 30, (x - window.innerWidth / 2) / 30, 1.2]
+const calc = (x: number, y:number) => [(y - window.innerHeight / 2) / 30, -(x - window.innerWidth / 2) / 30, 1.2]
 const trans : any = (x:number, y:number, s:number) => `rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
 interface Props {

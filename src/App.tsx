@@ -56,6 +56,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
           <div className="App">
+            <img className="backdrop" alt="bd" src={`${process.env.PUBLIC_URL}backdrop.jpg`}/>
               <Nav/>
               {transitions.map(({item, props, key} : any) => {
                   //@ts-ignore

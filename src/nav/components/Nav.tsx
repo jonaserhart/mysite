@@ -14,10 +14,13 @@ export default function Nav() {
     }, [history])
 
     return(
-        <div className="navbar-container">
-            <NavLink linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
-            <NavLink linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
-            <NavLink linkTo="/references" onClick={() => onClick('/references')} active={location.pathname === '/references'}>References</NavLink>
+        <div className="wrapper">
+        <div className="navbg"/>   
+            <div className="navbar-container">
+                <NavLink linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
+                <NavLink linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
+                <NavLink linkTo="/references" onClick={() => onClick('/references')} active={location.pathname === '/references'}>References</NavLink>
+            </div> 
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { animated, useTrail } from 'react-spring';
 import '../styles/Home.scss'
-import CardLink from './Card';
 
 
 function Trail({ open, children, ...props }:any) {
@@ -9,8 +8,8 @@ function Trail({ open, children, ...props }:any) {
     const trail = useTrail(items.length, {
       config: { mass: 5, tension: 2000, friction: 200 },
       opacity: open ? 1 : 0,
-      x: open ? 0 : 20,
-      height: open ? 100 : 0,
+      x: open ? 20 : 0,
+      height: open ? 50 : 0,
       from: { opacity: 0, x: 20, height: 0 },
     })
     return (
@@ -42,20 +41,8 @@ export default function Home({style}: any){
     return (
         <animated.div className="center home" style={{...style}}>
             <Trail open={open}>
-                <div className="image-container">
-                    <img className="profile-image" alt="me" src={process.env.PUBLIC_URL + 'me.jpg'}/>
-                </div>
-                <div>
-                    <h1>Hello there!</h1>
-                    <p>Welcome to my personal Website, feel free to look around.</p>
-                </div>
-                <div>
-                    <p>
-                        Check out my skills and references on the top of this page or below:
-                    </p>
-                    <p>This site is currently under development...</p>
-                </div>
-                <CardLink backgroundImage='react.png' linkTo='/skills'/>
+                <h1>Welcome</h1>
+                <h2>to my personal website</h2>
             </Trail>
         </animated.div>
     )
