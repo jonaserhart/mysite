@@ -2,11 +2,18 @@ import * as React from 'react';
 import Skill from './Skill';
 import '../styles/Skills.scss';
 import { animated } from 'react-spring';
+import useDevice from '../../global/hooks/useDevice';
 
 export default function SkillCollection({style} :any){
+
+    const [isMobile] = useDevice();
+
     return (
         <animated.div className='center skill-collection' style={{...style}}>
-            <div className="header"><h1>Skills</h1></div>
+            <div className="header">
+                <h1>Skills</h1>
+                { isMobile && (<p>Hover to see more</p>) }
+            </div>
             <Skill title="Web Development" backgroundImage="react.png">
                 <ul>
                     <li>ASP.net core</li>
@@ -44,14 +51,23 @@ export default function SkillCollection({style} :any){
                     <li>JetBrains DataGrip</li>
                 </ul>
             </Skill>
+            <Skill title="Tools & Environments" backgroundImage="ubuntu.png">
+                <ul>
+                    <li>Linux - Environment</li>
+                    <li>Windows - Environment</li>
+                    <li>Azure DevOps</li>
+                    <li>JetBrains Space DevOps</li>
+                    <li>Fiddler/Wireshark/Postman</li>
+                </ul>
+            </Skill>
             <Skill title="Other" backgroundImage="other.png">
                 <ul>
                     <li>Azure DevOps</li>
                     <li>JetBrains Space DevOps</li>
                     <li>Git Version Control</li>
-                    <li>Linux - Environment</li>
-                    <li>Windows - Environment</li>
                     <li>C Programming Language</li>
+                    <li>Unit Testing</li>
+                    <li>Ranorex UI Testing</li>
                 </ul>
             </Skill>
         </animated.div>

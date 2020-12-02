@@ -30,3 +30,26 @@
         }
     }
 }
+
+.mobile-nav{
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+    position: fixed;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.692);
+    .open-button{
+        margin-top: 4px;
+        margin-bottom: 2px;
+    }
+    .nav-item{
+        margin: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 20px;
+        >a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+    }
+}

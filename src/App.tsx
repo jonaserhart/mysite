@@ -8,6 +8,8 @@ import SkillCollection from './skills/components/SkillCollection';
 import { useTransition } from 'react-spring';
 import Nav from './nav/components/Nav';
 import References from './references/components/References';
+import MobileNav from './nav/components/MobileNav';
+import useDevice from './global/hooks/useDevice';
 
 
 const pages = [
@@ -20,6 +22,10 @@ function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const themeName = prefersDarkMode ? "dark" : "light";
+  
+  const [isMobile] = useDevice();
+
+  const NavBar = isMobile ? MobileNav : Nav;
 
   const location = useLocation();
   const [index, setIndex] = React.useState([0,0])
@@ -57,7 +63,7 @@ function App() {
     <ThemeProvider theme={theme}>
           <div className="App">
             <img className="backdrop" alt="bd" src={`${process.env.PUBLIC_URL}backdrop.jpg`}/>
-              <Nav/>
+              <NavBar/>
               {transitions.map(({item, props, key} : any) => {
                   //@ts-ignore
                   const Page = pages[item]
