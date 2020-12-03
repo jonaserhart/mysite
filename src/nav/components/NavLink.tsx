@@ -6,13 +6,14 @@ interface Props {
     active?: boolean;
     onClick?: () => void;
     children?: React.ReactNode;
+    innerKey: string;
 }
 
-export default function NavLink({linkTo, onClick, active = false, children}: Props){
+export default function NavLink({linkTo, onClick, active = false, innerKey, children}: Props){
 
     const classNames = "nav-item" + (active ? " nav-item-active" : "");
     return(
-        <div className={classNames}>
+        <div className={classNames} key={innerKey}>
             <Link to={linkTo}  onClick={onClick}>{children}</Link>
         </div>
     )

@@ -21,7 +21,7 @@ export default function Trail({ open, children, elemHeight, ...props }:any) {
         <div>
           {trail.map(({ x, height, ...rest }: any, index: number) => (
             <animated.div
-              key={items[index]+""}
+              key={index}
               className="trails-text"
               style={{ ...rest, transform: x.interpolate((x: any) => `translate3d(0,${x}px,0)`) }}>
               <animated.div style={{ height }}>{items[index]}</animated.div>

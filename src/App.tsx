@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import SkillCollection from './skills/components/SkillCollection';
 import { animated, useSpring, useTransition } from 'react-spring';
 import Nav from './nav/components/Nav';
-import References from './references/components/References';
+import Work from './references/components/Work';
 import MobileNav from './nav/components/MobileNav';
 import useDevice from './global/hooks/useDevice';
 
@@ -15,7 +15,7 @@ import useDevice from './global/hooks/useDevice';
 const pages = [
     Home,
     SkillCollection,
-    References
+    Work
 ]
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
   React.useEffect(() => {
       if (location.pathname === '/') setNewIndex(0);
       if (location.pathname === '/skills') setNewIndex(1);
-      if (location.pathname === '/references') setNewIndex(2);
+      if (location.pathname === '/links') setNewIndex(2);
   }, [location, setNewIndex]);
 
   const transitions = useTransition(index[1], p => p, {

@@ -15,11 +15,11 @@ export default function Nav() {
 
     return(
         <div className="wrapper">
-        <div className="navbg"/>   
+        <div className="nav-bg"/>   
             <div className="navbar-container">
-                <NavLink linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
-                <NavLink linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
-                <NavLink linkTo="/references" onClick={() => onClick('/references')} active={location.pathname === '/references'}>References</NavLink>
+                <NavLink innerKey="home" linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
+                <NavLink innerKey="skills" linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
+                <NavLink innerKey="ref" linkTo="/links" onClick={() => onClick('/links')} active={location.pathname === '/links'}>Projects</NavLink>
             </div> 
         </div>
     )

@@ -53,9 +53,9 @@ export default function MobileNav(){
                 <Trail open={open} elemHeight={250}>
                         <Trail open={openTrail}>
                             <Divider style={{backgroundColor: 'white'}}/>
-                            <NavLink linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
-                            <NavLink linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
-                            <NavLink linkTo="/references" onClick={() => onClick('/references')} active={location.pathname === '/references'}>References</NavLink>
+                            <NavLink innerKey="home" linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
+                            <NavLink innerKey="skills" linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
+                            <NavLink innerKey="ref" linkTo="/links" onClick={() => onClick('/references')} active={location.pathname === '/references'}>Projects</NavLink>
                         </Trail>
                 </Trail>
             </div>
