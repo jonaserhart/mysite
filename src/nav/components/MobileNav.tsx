@@ -5,6 +5,7 @@ import NavLink from './NavLink';
 import '../styles/Nav.scss';
 import AddIcon from '@material-ui/icons/Add';
 import { animated, useSpring } from 'react-spring';
+import { Divider } from '@material-ui/core';
 
 export default function MobileNav(){
 
@@ -46,11 +47,12 @@ export default function MobileNav(){
             <div className="mobile-nav">
                 <div className="top-bar">
                     <animated.div className="open-button" onClick={() => setOpenMenu(!open)} style={{ transform: props.r.interpolate(trans)}}>
-                        <AddIcon style={{ color: 'white', fontSize: 'xx-large'}}/>
+                        <AddIcon style={{ color: 'white', fontSize: '40px'}}/>
                     </animated.div>
                 </div>
-                <Trail open={open} elemHeight={200}>
+                <Trail open={open} elemHeight={250}>
                         <Trail open={openTrail}>
+                            <Divider style={{backgroundColor: 'white'}}/>
                             <NavLink linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
                             <NavLink linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
                             <NavLink linkTo="/references" onClick={() => onClick('/references')} active={location.pathname === '/references'}>References</NavLink>

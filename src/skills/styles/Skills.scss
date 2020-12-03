@@ -45,6 +45,18 @@
     transition: filter 0.6s ease-in-out
 }
 
+.picture-placeholder {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70px;  
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.226);
+    border-radius: 5%;
+    margin: auto;
+    transition: filter 0.6s ease-in-out
+}
+
 .skill-desktop:hover li{
     filter: blur(0px);
     -webkit-filter: blur(0px);

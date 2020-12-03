@@ -3,9 +3,9 @@ import { useMediaQuery, createMuiTheme, ThemeProvider } from '@material-ui/core'
 import "./global/styles/App.scss";
 import Home from './home/components/Home';
 import './global/styles/Center.scss';
-import { useLocation, useHistory} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import SkillCollection from './skills/components/SkillCollection';
-import { useTransition } from 'react-spring';
+import { animated, useSpring, useTransition } from 'react-spring';
 import Nav from './nav/components/Nav';
 import References from './references/components/References';
 import MobileNav from './nav/components/MobileNav';
@@ -29,6 +29,7 @@ function App() {
 
   const location = useLocation();
   const [index, setIndex] = React.useState([0,0])
+  const [props, set] = useSpring(() => ({opacity: 0, config: { mass: 10, tension: 100, friction: 40 }}))
 
   const setNewIndex = React.useCallback((newIndex: number) => {
       if (index[1] === newIndex) return;
@@ -59,11 +60,20 @@ function App() {
       }),
     [themeName],
   );
+
+  const onLoadBackdrop = React.useCallback(() => {
+    set({opacity: 1});
+  }, [set]);
+
   return (
     <ThemeProvider theme={theme}>
           <div className="App">
-            <img className="backdrop" alt="bd" src={`${process.env.PUBLIC_URL}backdrop.jpg`}/>
-              <NavBar/>
+              <animated.div style={props}>
+                <img className="backdrop" alt="bd" src={`${process.env.PUBLIC_URL}backdrop.jpg`} onLoad={onLoadBackdrop}/>
+              </animated.div>
+              <animated.div style={props}>
+                <NavBar/>
+              </animated.div>
               {transitions.map(({item, props, key} : any) => {
                   //@ts-ignore
                   const Page = pages[item]
