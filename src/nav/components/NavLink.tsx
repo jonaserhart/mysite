@@ -11,10 +11,10 @@ interface Props {
 
 export default function NavLink({linkTo, onClick, active = false, innerKey, children}: Props){
 
-    const classNames = "nav-item" + (active ? " nav-item-active" : "");
-    return(
-        <div className={classNames} key={innerKey}>
-            <Link to={linkTo}  onClick={onClick}>{children}</Link>
-        </div>
-    )
+	const classNames = 'nav-item' + (active ? ' nav-item-active' : '');
+	return(
+		<div className={classNames} key={innerKey}>
+			<Link to={linkTo}  onClick={onClick}>{children}</Link>
+		</div>
+	);
 }

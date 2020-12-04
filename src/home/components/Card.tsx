@@ -9,14 +9,14 @@ interface Props {
 
 export default function CardLink({backgroundImage, linkTo}: Props) {
 
-    const history = useHistory();
+	const history = useHistory();
 
-    return(
-        <div className="card-link" onClick={() => history.push(linkTo)}>
-            <div className="bgImage-card" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + backgroundImage})`}}/>
-            <div className="card-title">                
-                <h2>Skills</h2>  
-            </div>
-        </div>
-    )
+	return(
+		<div className="card-link" onClick={() => history.push(linkTo)}>
+			<div className="bgImage-card" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + backgroundImage})`}}/>
+			<div className="card-title">                
+				<h2>Skills</h2>  
+			</div>
+		</div>
+	);
 }

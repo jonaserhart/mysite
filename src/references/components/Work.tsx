@@ -6,12 +6,12 @@ import useDevice from '../../global/hooks/useDevice';
 
 export default function Work({style}: any){
 
-    const [isMobile] = useDevice();
+	const [isMobile] = useDevice();
 
-    return (
-        <animated.div className="center references" style={{...style}}>
-            <h1>Work and Projects</h1>
-            {!isMobile && <Projects/>}
-        </animated.div>
-    )
+	return (
+		<animated.div className="center references" style={{...style}}>
+			<h1>Work and Projects</h1>
+			{!isMobile && <Projects/>}
+		</animated.div>
+	);
 }

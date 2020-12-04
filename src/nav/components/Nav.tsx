@@ -4,23 +4,23 @@ import '../styles/Nav.scss';
 import NavLink from './NavLink';
 
 export default function Nav() {
-    const history = useHistory();
-    const location = useLocation();
+	const history = useHistory();
+	const location = useLocation();
 
-    const onClick = React.useCallback((route: string) => {
-        if (history){
-            history.push(route)
-        }
-    }, [history])
+	const onClick = React.useCallback((route: string) => {
+		if (history){
+			history.push(route);
+		}
+	}, [history]);
 
-    return(
-        <div className="wrapper">
-        <div className="nav-bg"/>   
-            <div className="navbar-container">
-                <NavLink innerKey="home" linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
-                <NavLink innerKey="skills" linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
-                <NavLink innerKey="ref" linkTo="/links" onClick={() => onClick('/links')} active={location.pathname === '/links'}>Projects</NavLink>
-            </div> 
-        </div>
-    )
+	return(
+		<div className="wrapper">
+			<div className="nav-bg"/>   
+			<div className="navbar-container">
+				<NavLink innerKey="home" linkTo="/" onClick={() => onClick('/')} active={location.pathname === '/'}>Home</NavLink>
+				<NavLink innerKey="skills" linkTo="/skills" onClick={() => onClick('/skills')} active={location.pathname === '/skills'}>Skills</NavLink>
+				<NavLink innerKey="ref" linkTo="/links" onClick={() => onClick('/links')} active={location.pathname === '/links'}>Projects</NavLink>
+			</div> 
+		</div>
+	);
 }
