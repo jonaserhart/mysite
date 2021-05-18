@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useInView } from 'react-hook-inview';
 import { animated, useSpring } from 'react-spring';
-import useDevice from '../../global/hooks/useDevice';
+import useDevice from '../hooks/useDevice';
+import '../styles/Card.scss';
 
 const trans : any = (s:number) => `scale(${s})`;
 
@@ -11,7 +12,7 @@ interface Props {
     children?: React.ReactNode;
 }
 
-export default function Skill({ title, backgroundImage, children } : Props){
+export default function Card({ title, backgroundImage, children } : Props){
 
 	const [props, set] = useSpring(() => ({ s: 0.8, config: { mass: 5, tension: 600, friction: 40 } }));
 	const [oProps, setoProps] = useSpring(() => ({opacity: 0, config: { mass: 5, tension: 600, friction: 40 }}));
@@ -45,7 +46,7 @@ export default function Skill({ title, backgroundImage, children } : Props){
 	if (isMobile) 
 		return(
 			<animated.div
-				className="skill skill-mobile"
+				className="card card-mobile"
 				style={{ transform: props.s.interpolate(trans)}}
 				ref={ref}
 			>
@@ -64,7 +65,7 @@ export default function Skill({ title, backgroundImage, children } : Props){
 
 	return (
 		<animated.div
-			className="skill skill-desktop"
+			className="card card-desktop"
 			onMouseMove={() => set({ s: 1.2})}
 			onMouseLeave={() => set({ s: 0.9 })}
 			style={{ transform: props.s.interpolate(trans)}}

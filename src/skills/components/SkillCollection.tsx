@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Skill from './Skill';
+import Card from '../../global/components/Card';
 import '../styles/Skills.scss';
 import { animated } from 'react-spring';
 import useDevice from '../../global/hooks/useDevice';
@@ -15,7 +15,7 @@ export default function SkillCollection({style} :any){
 				<h1>Skills</h1>
 				{ !isMobile && (<p>Hover to see more</p>) }
 			</div>
-			<Skill title="Web Development" backgroundImage="react.svg">
+			<Card title="Web Development" backgroundImage="react.svg">
 				<Divider style={{backgroundColor: 'white'}}/>
 				<List component="nav" dense>
 					<ListItem>
@@ -28,8 +28,8 @@ export default function SkillCollection({style} :any){
 						<ListItemText primary="React" />
 					</ListItem>
 				</List>
-			</Skill>      
-			<Skill title="Programming Languages" backgroundImage="java.png">
+			</Card>      
+			<Card title="Programming Languages" backgroundImage="java.png">
 				<Divider style={{backgroundColor: 'white'}}/>
 				<List component="nav">
 					<ListItem>
@@ -45,8 +45,8 @@ export default function SkillCollection({style} :any){
 						<ListItemText primary="Java- /TypeScript" />
 					</ListItem>
 				</List>    
-			</Skill>                   
-			<Skill title="Database Management" backgroundImage="postgres.png">
+			</Card>                   
+			<Card title="Database Management" backgroundImage="postgres.png">
 				<Divider style={{backgroundColor: 'white'}}/>
 				<List component="nav">
 					<ListItem>
@@ -59,8 +59,8 @@ export default function SkillCollection({style} :any){
 						<ListItemText primary="MSSQL" />
 					</ListItem>
 				</List>
-			</Skill>  
-			<Skill title="IDEs" backgroundImage="vscode.png">
+			</Card>  
+			<Card title="IDEs" backgroundImage="vscode.png">
 				<Divider style={{backgroundColor: 'white'}}/>
 				<List component="nav">
 					<ListItem>
@@ -79,8 +79,8 @@ export default function SkillCollection({style} :any){
 						<ListItemText primary="JetBrains DataGrip" />
 					</ListItem>
 				</List>
-			</Skill>
-			<Skill title="Tools & Environments" backgroundImage="ubuntu.png">
+			</Card>
+			<Card title="Tools & Environments" backgroundImage="ubuntu.png">
 				<Divider style={{backgroundColor: 'white'}}/>
 				<List component="nav">
 					<ListItem>
@@ -99,8 +99,8 @@ export default function SkillCollection({style} :any){
 						<ListItemText primary="Fiddler/Wireshark/Postman" />
 					</ListItem>
 				</List>
-			</Skill>
-			<Skill title="Other" backgroundImage="other.png">
+			</Card>
+			<Card title="Other" backgroundImage="other.png">
 				<Divider style={{backgroundColor: 'white'}}/>
 				<List component="nav">
 					<ListItem>
@@ -113,7 +113,7 @@ export default function SkillCollection({style} :any){
 						<ListItemText primary="Ranorex UI Testing" />
 					</ListItem>
 				</List>
-			</Skill>
+			</Card>
 		</animated.div>
 	);
 }
