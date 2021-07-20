@@ -18,11 +18,11 @@ export default function Home({ style }: any) {
 		},
 	});
 	React.useEffect(() => {
-		setTimeout(() => setAge(((Date.now() - new Date('22 Dec 1998 18:19:00').getTime()) / 60000).toFixed(0)), 30000);
+		setTimeout(() => setAge(((Date.now() - new Date('22 Dec 1998 18:19:00').getTime()) / 1000).toFixed(0)), 1000);
 	}, [age]);
 
 	React.useEffect(() => {
-		setAge(((Date.now() - new Date('22 Dec 1998 18:19:00').getTime()) / 60000).toFixed(0));
+		setAge(((Date.now() - new Date('22 Dec 1998 18:19:00').getTime()) / 1000).toFixed(0));
 		setTimeout(() => {
 			setOpen(true);
 		}, 600);
@@ -45,10 +45,10 @@ export default function Home({ style }: any) {
 						<Divider style={{ backgroundColor: 'white' }} />
 						<List component="nav" dense>
 							<ListItem>
-								<ListItemText primary={`I am currently ${age} minutes old`} />
+								<ListItemText primary={`I am currently ${age} seconds old`} />
 							</ListItem>
 							<ListItem>
-								<ListItemText primary="I am studying CS in Innsnruck" />
+								<ListItemText primary="I am studying CS in Innsbruck" />
 							</ListItem>
 							<ListItem>
 								<ListItemText primary="Working as an all-rounding developer" />
@@ -68,9 +68,6 @@ export default function Home({ style }: any) {
 							</ListItem>
 							<ListItem button component="a" href="https://www.linkedin.com/in/jonas-erhart-3686b3201/">
 								<ListItemText primary="LinkedIn: Jonas Erhart" secondary="linkedin.com/in/jonas-erhart-3686b3201/"/>
-							</ListItem>
-							<ListItem button component="a" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-								<ListItemText primary="Tinder" secondary="tinder.com/je_2010_official"/>
 							</ListItem>
 						</List>
 					</Card>
